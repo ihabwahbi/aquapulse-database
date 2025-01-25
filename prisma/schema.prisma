@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AssetInformation {
+  id                Int      @id @default(autoincrement())
+  assetCodeLevel1   String
+  assetCodeLevel2   String
+  assetCodeLevel3   String
+  assetCodeLevel4   String
+  assetSerialNumber String
+  geoUnit           String
+  countryCode       String
+  locationCode      String
+  assetStatus       String
+
+  @@unique([assetCodeLevel4, assetSerialNumber])
+}
