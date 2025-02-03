@@ -17,7 +17,58 @@ model AssetInformation {
   geoUnit           String
   countryCode       String
   locationCode      String
-  assetStatus       String
+  repairStatus      String    // Changed from assetStatus to repairStatus
 
   @@unique([assetCodeLevel4, assetSerialNumber])
+}
+
+model AssetRepairSummary {
+  id                  Int      @id @default(autoincrement())
+  geoUnit             String?
+  locationCode        String?
+  assetStatus         String?
+  assetCodeLevel4     String?
+  assetSerialNumber   String?
+  daysDown            String?
+  repairResponsibility String?
+  ranStatus           String?
+  partsDeclared       String?
+  reservationStatus   String?
+  supplyStatus        String?
+  gbv                 String?
+  estimatedRepairDate DateTime? // Make it nullable
+}
+
+model PeggingReport {
+  id                            Int       @id @default(autoincrement())
+  plant                         String?
+  geoUnit                       String?
+  material                      String?
+  reservation                   String?
+  reservationLine              String?
+  reservationRequirementDate    DateTime?
+  reservationCreationDate      DateTime?
+  stockOnHandDDSC              Float?
+  stockOnHandHDSC              Float?
+  last3MonthConsumption        Float?
+  last6MonthConsumption        Float?
+  last12MonthConsumption       Float?
+  materialStratification6Month  String?
+  materialStratification12Month String?
+  reservationOpenQty           Float?
+  reservationOpenValue         Float?
+  stockOnHandPlant             Float?
+  peggedPOLine                 Float?
+  peggingStatus                String?
+  peggedPONumber               String?
+  peggedPONumberAdditional     String?
+  peggedPOQty                  Float?
+  peggedPOInvoiceStatus        String?
+  materialDescription          String?
+  materialPrimeStatus          String?
+  materialSafetyStock          Float?
+  plannedOrderStatus           String?
+  assetCodeLevel4              String?
+  assetSerialNumber            String?
+  requester                    String?
 }

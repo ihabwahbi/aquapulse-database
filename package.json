@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "import": "ts-node src/import-assets.ts"
+    "import-asset": "ts-node src/import-assets.ts",
+    "import-repair": "ts-node src/import-assets-repair.ts",
+    "import-pegging": "ts-node src/import-pegging.ts"
   },
   "keywords": [],
   "author": "",
@@ -16,8 +18,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.2.1",
+    "@types/xlsx": "^0.0.35",
     "csv-parse": "^5.6.0",
     "ts-node": "^10.9.2",
+    "xlsx": "^0.18.5",
     "zod": "^3.24.1"
   },
   "repository": {
